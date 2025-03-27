@@ -15,12 +15,12 @@ func main() {
 	}
 	defer producer.Close()
 
-	topic := "test_topic"
+	topic := "quickstart-events"
 
 	// Produce a message
 	message := kafka.Message{
 		TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: kafka.PartitionAny},
-		Value:          []byte("Hello Kafka from Golang-part 1!"),
+		Value:          []byte("Hello Kafka from GO. Updated!"),
 	}
 
 	err = producer.Produce(&message, nil)
@@ -30,6 +30,7 @@ func main() {
 
 	// Wait for all messages to be delivered
 	producer.Flush(15000)
+	producer.Close()
 
 	fmt.Println("Message sent successfully")
 }
