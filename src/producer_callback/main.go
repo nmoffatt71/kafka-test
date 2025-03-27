@@ -20,7 +20,7 @@ func main() {
 	}
 	defer producer.Close()
 
-	topic := "test_topic"
+	topic := "quickstart-events"
 
 	// Delivery report handler for produced messages
 	go func() {
