@@ -21,7 +21,7 @@ func main() {
 	defer consumer.Close()
 
 	// Subscribe to topic
-	topic := "test_topic"
+	topic := "quickstart-events"
 	consumer.SubscribeTopics([]string{topic}, nil)
 
 	for {

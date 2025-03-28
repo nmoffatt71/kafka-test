@@ -30,7 +30,7 @@ func main() {
 				if ev.TopicPartition.Error != nil {
 					fmt.Printf("Delivery failed: %v\n", ev.TopicPartition)
 				} else {
-					fmt.Printf("Delivered message to %v\n", ev.TopicPartition)
+					fmt.Printf("Delivered message to: %v Topic: %v\n", ev.TopicPartition, *ev.TopicPartition.Topic)
 				}
 			}
 		}
