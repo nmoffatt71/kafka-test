@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/confluentinc/confluent-kafka-go/kafka"
 	"github.com/prometheus/client_golang/prometheus"
@@ -56,6 +57,8 @@ func main() {
 			kafkaMessagesProduced.WithLabelValues(topic).Inc() // Update Prometheus counter
 		}
 	}
+	// Pause
+	time.Sleep(1 * time.Minute)
 
 	// Flush all messages
 	producer.Flush(5000)
